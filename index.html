@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" onclick="insert()">
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -17,7 +17,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RISHABH</title>
+    <title id="display">RISHABH</title>
     <meta name="google-site-verification" content="Pkuth5cX-tSXV9w7BMfutTAYGCs6mM9wuxZ3vZjHXYg" />
     <link rel="icon" href="rlogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,16 +37,16 @@
         <header>
             <nav>
                 <ul id="nav_bar">
-                    <li class="nav-links" id="gmail"><a href="https://translate.google.co.in/">Translate</a></li>
-                    <li class="nav-links"><a href="https://www.wikipedia.org/">Wikipedia</a></li>
-                    <li id="sign_in"><a class="gb_D gb_Na gb_i" href="https://rishabhsahil.github.io/riweather.github.io/">Weather</a></li>
+                    <li class="nav-links" id="gmail"><a href="https://translate.google.co.in/" title="Translate">Translate</a></li>
+                    <li class="nav-links"><a href="https://www.wikipedia.org/" title="Wikipedia">Wikipedia</a></li>
+                    <li id="sign_in"><a class="gb_D gb_Na gb_i" href="https://rishabhsahil.github.io/riweather.github.io/" title="Weather">Weather</a></li>
                 </ul>
             </nav>
         </header>
 
         <div class="google">
             <div id="google_logo">
-                <a href="search.html#gsc.tab=0&gsc.q=RISHABH" id="clicktomove">
+                <a href="search.html#gsc.tab=0&gsc.q=RISHABH" id="clicktomove" title="Click To Search RISHABH">
                     <font color="#9A06C2" size="90px"><i><b>R</b></i></font>
                     <font color="#9A06C2" size="90px"><i><b>I</b></i></font>
                     <font color="#9A06C2" size="90px"><i><b>S</b></i></font>
@@ -61,11 +61,11 @@
             <form id="frmsearch" method="get" />
             <div class="search-input">
                 <a href="" target="_blank" hidden></a>
-                <input type="text" id="textSearch" class="search-text" placeholder="Type to search. . ." />
+                <input type="text" id="textSearch" class="search-text" part="control" title="Enter search here" placeholder="Type to search. . ." onkeyup="Allow()" />
                 <div class="autocom-box">
                     <!-- here list are inserted from javascript -->
                 </div>
-                <button type="submit" class="icon"><i class="fa fa-search"></i></div>
+                <button type="submit" class="icon" title="Click to search"><i class="fa fa-search"></i></div>
 				</button>
             </div>
         </div>
@@ -104,6 +104,27 @@
                 }
             </script>
             <script type="text/javascript" src="./vanilla-tilt.js"></script>
+            <script type="text/javascript">
+                var titles  = [];
+                var titleInput  = document.getElementById("textSearch");
+                var messageBox  = document.getElementById("display");
+
+                function Allow(){
+                    if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="") {
+                        user.title.value="";
+                    }
+                }
+
+                function insert () {
+                    titles.push(titleInput.value);
+                    clearAndShow();
+                }
+
+                function clearAndShow () {
+                    messageBox.innerHTML = "";
+                    messageBox.innerHTML +=titles.join(" ")+" -RISHABH";
+                }
+            </script>            
 
 </body>
 </html>
